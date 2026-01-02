@@ -1,0 +1,9 @@
+## Interface: 120001, 120000, 110207, 50503, 40402, 38000, 30405, 30300, 20505, 11508
+## Title: MiniHonorCapped
+## Notes: Prints a warning message to chat when you're almost honor capped.
+## Author: Verz
+## Version: 1.0.0
+## SavedVariables: MiniHonorCappedDB
+## IconTexture: Interface\AddOns\MiniHonorCapped\icon.blp
+
+MiniHonorCapped.lua
