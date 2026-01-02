@@ -57,7 +57,7 @@ local function Run(forcePrint)
 
 	if honor >= (db.MaxHonor or dbDefaults.MaxHonor) then
 		textFormat = db.CappedFormat or dbDefaults.CappedFormat
-	elseif honor >= db.HonorThreshold or dbDefaults.HonorThreshold then
+	elseif honor >= (db.HonorThreshold or dbDefaults.HonorThreshold) then
 		textFormat = db.AlmostCappedFormat or dbDefaults.AlmostCappedFormat
 	else
 		return
