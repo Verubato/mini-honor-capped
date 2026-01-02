@@ -3,7 +3,9 @@ local frame
 local db
 local dbDefaults = {
 	HonorThreshold = 13000,
-	TextFormat = "|cffff0000Almost honor capped! (%s / 15000)|r",
+	MaxHonor = 15000,
+	AlmostCappedFormat = "|cffff0000You're almost honor capped! (%s / 15000)|r",
+	CappedFormat = "|cffff0000You're honor capped!|r",
 }
 local lastWarningAmount
 
@@ -44,21 +46,33 @@ local function GetHonorAmount()
 	return nil
 end
 
-local function Run()
+local function Run(forcePrint)
 	local honor = GetHonorAmount()
 
 	if not honor then
 		return
 	end
 
-	local honorThreshold = db.HonorThreshold or dbDefaults.HonorThreshold
-	local textFormat = db.TextFormat or dbDefaults.TextFormat
+	local textFormat
+
+	if honor >= (db.MaxHonor or dbDefaults.MaxHonor) then
+		textFormat = db.CappedFormat or dbDefaults.CappedFormat
+	elseif honor >= db.HonorThreshold or dbDefaults.HonorThreshold then
+		textFormat = db.AlmostCappedFormat or dbDefaults.AlmostCappedFormat
+	else
+		return
+	end
+
 	local msg = textFormat:format(honor)
 
-	if honor >= honorThreshold and honor ~= lastWarningAmount then
+	if forcePrint or honor ~= lastWarningAmount then
 		print(msg)
 		lastWarningAmount = honor
 	end
+end
+
+local function OnEvent(_, event)
+	Run(event == "PLAYER_ENTERING_WORLD")
 end
 
 local function Init()
@@ -76,6 +90,6 @@ frame:SetScript("OnEvent", function(_, event, arg1)
 		frame:UnregisterEvent("ADDON_LOADED")
 		frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 		frame:RegisterEvent("CURRENCY_DISPLAY_UPDATE")
-		frame:SetScript("OnEvent", Run)
+		frame:SetScript("OnEvent", OnEvent)
 	end
 end)
