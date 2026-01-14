@@ -4,7 +4,7 @@
 ## Author: Verz
 ## Version: 1.0.1
 ## SavedVariables: MiniHonorCappedDB
-## IconTexture: Interface\AddOns\MiniHonorCapped\icon.blp
+## IconTexture: Interface\AddOns\MiniHonorCapped\Icon.blp
 ## X-Curse-Project-ID: 1418708
 
 MiniHonorCapped.lua
