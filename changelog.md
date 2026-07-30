@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+12.1 version support
+
 ## 1.0.1
 
 Logic bug fix causing warning message to print when it shouldn't.
