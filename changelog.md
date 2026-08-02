@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.3
+
+Updated interface versions for the latest Classic, TBC and Mists builds.
+
 ## 1.0.2
 
 12.1 version support
