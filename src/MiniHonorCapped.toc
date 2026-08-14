@@ -1,4 +1,4 @@
-## Interface: 120100, 120007, 120001, 120000, 110207, 50504, 40402, 38002, 38000, 30405, 30300, 20506, 11509
+## Interface: 120100, 50504, 40402, 38002, 38000, 30405, 30300, 20506, 11509
 ## Title: MiniHonorCapped
 ## Notes: Prints a warning message to chat when you're almost honor capped.
 ## Author: Verz
