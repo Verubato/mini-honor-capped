@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.7
+
+Added a Mini category so the addon groups with the other Mini addons in the addon list.
+
 ## 1.0.6
 
 Dropped old retail clients support.

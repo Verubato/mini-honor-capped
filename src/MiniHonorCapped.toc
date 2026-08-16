@@ -3,7 +3,7 @@
 ## Notes: Prints a warning message to chat when you're almost honor capped.
 ## Category: Mini
 ## Author: Verz
-## Version: 1.0.6
+## Version: 1.0.7
 ## SavedVariables: MiniHonorCappedDB
 ## IconTexture: Interface\AddOns\MiniHonorCapped\Icon.blp
 ## X-Curse-Project-ID: 1418708
