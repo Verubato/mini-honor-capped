@@ -1,13 +1,21 @@
-local addonName, _ = ...
+local addonName, addon = ...
 local frame
 local db
+
+-- The honor cap has never changed and never will, so it is a constant rather than a setting.
+local MAX_HONOR = 15000
+
 local dbDefaults = {
 	HonorThreshold = 13000,
-	MaxHonor = 15000,
-	AlmostCappedFormat = "|cffff0000You're almost honor capped! (%s / 15000)|r",
+	AlmostCappedFormat = "|cffff0000You're almost honor capped! (%s / " .. MAX_HONOR .. ")|r",
 	CappedFormat = "|cffff0000You're honor capped!|r",
 }
 local lastWarningAmount
+
+-- Config.lua builds its panel independently of this file's own ADDON_LOADED handler, so it
+-- reads the cap and the defaults from here rather than assuming either has run first.
+addon.MaxHonor = MAX_HONOR
+addon.DbDefaults = dbDefaults
 
 local function CopyTable(src, dst)
 	if type(dst) ~= "table" then
@@ -55,7 +63,7 @@ local function Run(forcePrint)
 
 	local textFormat
 
-	if honor >= (db.MaxHonor or dbDefaults.MaxHonor) then
+	if honor >= MAX_HONOR then
 		textFormat = db.CappedFormat or dbDefaults.CappedFormat
 	elseif honor >= (db.HonorThreshold or dbDefaults.HonorThreshold) then
 		textFormat = db.AlmostCappedFormat or dbDefaults.AlmostCappedFormat
@@ -78,6 +86,11 @@ end
 local function Init()
 	MiniHonorCappedDB = MiniHonorCappedDB or {}
 	db = CopyTable(dbDefaults, MiniHonorCappedDB)
+
+	-- MaxHonor used to be saved; clear it out of any profile from before it became a constant.
+	db.MaxHonor = nil
+
+	addon.Db = db
 end
 
 frame = CreateFrame("Frame")
