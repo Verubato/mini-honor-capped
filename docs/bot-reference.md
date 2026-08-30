@@ -1,6 +1,6 @@
 # MiniHonorCapped - bot reference
 
-Version 1.0.6. Interface versions: 120100, 50504, 40402, 38002, 38000,
+Version 1.1.0. Interface versions: 120100, 50504, 40402, 38002, 38000,
 30405, 30300, 20506, 11509 (retail plus the classic client lines). Saved
 variables: MiniHonorCappedDB (account-wide).
 
@@ -9,7 +9,7 @@ variables: MiniHonorCappedDB (account-wide).
 Prints a red warning in the chat window when your Honor currency approaches
 or reaches the cap, so you can spend it before losing gains.
 
-- At 13000 honor or more: "You're almost honor capped! (<amount> / 15000)"
+- At the warning threshold (default 13000) or more: "You're almost honor capped! (<amount> / 15000)"
 - At 15000 honor or more: "You're honor capped!"
 
 ## How it works
@@ -23,18 +23,24 @@ or reaches the cap, so you can spend it before losing gains.
 
 ## Settings
 
-No options UI and no slash commands. Thresholds and messages can be changed
-by editing the saved variables in MiniHonorCappedDB:
+A settings page, opened with a slash command (/minihonorcapped, /mhc) or
+Options -> AddOns -> MiniHonorCapped. It holds one control:
+
+| Setting | Type | Default | Range |
+|---|---|---|---|
+| Warning Threshold | slider | 13000 | 0-15000, step 100 |
+
+15000 is a fixed constant (the honor cap never changes) rather than a saved
+value, so the slider's own maximum is pinned to it. The message text can
+still only be changed by editing the saved variables in MiniHonorCappedDB:
 
 | Key | Default | Meaning |
 |---|---|---|
-| HonorThreshold | 13000 | Amount at which the "almost capped" warning starts. |
-| MaxHonor | 15000 | Amount treated as capped. |
 | AlmostCappedFormat | "\|cffff0000You're almost honor capped! (%s / 15000)\|r" | Chat format for the almost-capped message; %s is your honor. |
 | CappedFormat | "\|cffff0000You're honor capped!\|r" | Chat format for the capped message. |
 
 Note the "/ 15000" in the default almost-capped text is part of the string,
-not derived from MaxHonor; change both if you edit the cap.
+not derived from the cap; change it too if you edit the format.
 
 ## Troubleshooting
 

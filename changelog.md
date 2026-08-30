@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.1.0
+
+- UI improvements.
+- Added a slider for the honor warning threshold.
+- Added a settings page.
+
 ## 1.0.7
 
 Added a Mini category so the addon groups with the other Mini addons in the addon list.
