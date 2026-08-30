@@ -37,7 +37,9 @@ mini:WaitForAddonLoad(function()
 		end,
 	})
 
-	thresholdSlider.Slider:SetPoint("TOPLEFT", header.Divider, "BOTTOMLEFT", 0, -mini.VerticalSpacing)
+	-- A slider carries its label above the track, so it needs a double gap under a section
+	-- rule where a checkbox would only need one.
+	thresholdSlider.Slider:SetPoint("TOPLEFT", header.Divider, "BOTTOMLEFT", 0, -mini.VerticalSpacing * 2)
 
 	mini:RegisterSlashCommand(category, panel, {
 		"/minihonorcapped",
