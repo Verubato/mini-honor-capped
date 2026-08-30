@@ -14,6 +14,7 @@ local testFiles = {
 	"tests/TestSmoke.lua",
 	"tests/TestMaxHonorConstant.lua",
 	"tests/TestWarnings.lua",
+	"tests/TestConfig.lua",
 }
 
 local loadErrors = {}
