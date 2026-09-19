@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.1.1
+
+Added WoW Forever support.
+
 ## 1.1.0
 
 - UI improvements.
